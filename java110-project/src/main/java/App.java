@@ -29,8 +29,31 @@ public class App {
             this.password = password;
         }
     }
-     
-    static Member[] members = new Member[100];
+    static class Student extends Member{
+        protected String school;
+        protected boolean working;
+        protected String tel;
+       public String getSchool() {
+           return school;
+       }
+       public void setSchool(String school) {
+           this.school = school;
+       }
+       public boolean isWorking() {
+           return working;
+       }
+       public void setWorking(boolean working) {
+           this.working = working;
+       }
+       public String getTel() {
+           return tel;
+       }
+       public void setTel(String tel) {
+           this.tel = tel;
+       }
+        
+    }
+    static Student[] students = new Student[100];
     
     static int index = 0;
     
@@ -56,9 +79,9 @@ public class App {
             System.out.println("학생관리> ");
             String command=keyIn.nextLine();
             if(command.equals("list")) {
-                printMembers();
+                printStudents();
             }else if(command.equals("add")) {
-                inputMembers();
+                inputStudents();
             }
             else if(command.equals("quit")) {
                 break;
@@ -95,18 +118,24 @@ public class App {
         }
     }
     
-    static void printMembers() {
-        for (int i = 0; i < index; i++) {
-            System.out.printf("%s, %s, %s\n", 
-                    members[i].getName(), 
-                    members[i].getEmail(), 
-                    members[i].getPassword());
+    static void printStudents() {
+        int count=0;
+        for (Student s : students) {
+            if(count++ == index)
+                break;
+            System.out.printf("%s, %s, %s, %s, %b, %s\n", 
+                    s.getName(), 
+                    s.getEmail(), 
+                    s.getPassword(),
+                    s.getSchool(),
+                    s.isWorking(),
+                    s.getTel());
         }
     }
     
-    static void inputMembers() {
+    static void inputStudents() {
         while (true) {
-            Member m = new Member();
+            Student m = new Student();
             
             System.out.print("이름? ");
             m.setName(keyIn.nextLine());
@@ -117,7 +146,16 @@ public class App {
             System.out.print("암호? ");
             m.setPassword(keyIn.nextLine());
             
-            members[index++] = m;
+            System.out.print("최종학력? ");
+            m.setSchool(keyIn.nextLine());
+            
+            System.out.print("재직여부 t/f? ");
+            m.setWorking(Boolean.parseBoolean(keyIn.nextLine()));
+            
+            System.out.print("전화? ");
+            m.setTel(keyIn.nextLine());
+            
+            students[index++] = m;
             
             System.out.print("계속 하시겠습니까?(Y/n) ");
             String answer = keyIn.nextLine();
