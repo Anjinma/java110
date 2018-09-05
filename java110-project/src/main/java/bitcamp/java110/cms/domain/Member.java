@@ -1,11 +1,10 @@
+package bitcamp.java110.cms.domain;
 
 public class Member {
     protected String name;
     protected String email;
     protected String password;
     
-    
-    // 인스턴스의 메모리를 다루는 operator=setter/getter=accessor=property=message
     public String getName() {
         return name;
     }
@@ -24,5 +23,4 @@ public class Member {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
