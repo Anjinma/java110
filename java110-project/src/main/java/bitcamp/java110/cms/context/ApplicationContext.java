@@ -4,8 +4,6 @@ import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
-import org.apache.ibatis.io.Resources;
-
 import bitcamp.java110.cms.annotation.Component;
 
 public class ApplicationContext {
