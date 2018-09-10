@@ -3,6 +3,9 @@ package bitcamp.java110.cms.context;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
+import java.util.Set;
+
+import org.apache.ibatis.io.Resources;
 
 import bitcamp.java110.cms.annotation.Component;
 
@@ -25,6 +28,15 @@ public class ApplicationContext {
     // objPool에 보관된 객체를 이름으로 찾아 리턴한다.
     public Object getBean(String name) {
         return objPool.get(name);
+    }
+    
+    public String[] getBeanDefinitionNames() {
+        Set<String> keySet = objPool.keySet();//key 집합을 리턴함
+        String [] names = new String[keySet.size()];//그걸 저장할 빈배열
+        keySet.toArray(names);//배열에 찾아가서 주소값을 지정
+        
+        return names;
+        
     }
     
     private void findClass(File path, String packagePath) throws Exception {
@@ -55,10 +67,19 @@ public class ApplicationContext {
                     Component anno = clazz.getAnnotation(Component.class);
                     
                     //System.out.println(clazz.getName() + "==> " + name);
-                    
-                    // => Component 애노테이션 value 값으로 인스턴스를 objPool에 저장한다.
-                    objPool.put(anno.value(), instance);
-                    
+
+                    /*Component 애노테이션에 value 값이 있으면 그 값으로 객체를 저장
+                     없으면, 클래스 이름으로 객체를 저장한다.*/
+                    if(anno.value().length()>0) {
+                        // => Component 애노테이션 value 값으로 인스턴스를 objPool에 저장한다.
+                        objPool.put(anno.value(), instance);
+                    }
+                    else {
+                        objPool.put(clazz.getName(),instance);
+                    }
+
+                    ;
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.out.printf("%s 클래스는 기본 생성자가 없습니다.", 
