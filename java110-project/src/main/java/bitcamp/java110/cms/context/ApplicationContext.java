@@ -2,7 +2,6 @@ package bitcamp.java110.cms.context;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,7 +10,6 @@ import java.util.Set;
 
 import org.apache.ibatis.io.Resources;
 
-import bitcamp.java110.cms.annotation.Autowired;
 import bitcamp.java110.cms.annotation.Component;
 
 public class ApplicationContext {
@@ -25,24 +23,26 @@ public class ApplicationContext {
         
         // 패키지 경로를 가지고 전체 파일 경로를 알아낸다.
         File file = Resources.getResourceAsFile(path);
-       
+
         // 패키지 폴더에 들어 있는 클래스를 찾아 클래스를 로딩한 후 그 목록에 저장한다.
         findClass(file, path);
-        
-//        로딩된 클래스 목록을 뒤져서 @Component가 붙은 
-//        클래스에 대해 인스턴스를 생성하여 objPool에 보관한다.
+
+        //        로딩된 클래스 목록을 뒤져서 @Component가 붙은 
+        //        클래스에 대해 인스턴스를 생성하여 objPool에 보관한다.
         createInstance();
         
-        //objPool에 보관된 객체를 꺼내 @Autowired가 붙은 셋터를 찾아 호출한다.
-        // 읜존 객체 주입
-        injectDependency();
+        // injectDependency() 메서드를 외부 클래스로 분리한 다음에 그 객체를 실행한다.
+        AutowiredAnnotationBeanPostProcessor processor = 
+                new AutowiredAnnotationBeanPostProcessor();
+        processor.postProcess(this);
+       
     }
-    
+
     // objPool에 보관된 객체를 이름으로 찾아 리턴한다.
     public Object getBean(String name) {
         return objPool.get(name);
     }
-    
+
     // 객체의 타입으로 objPool에 보관된 객체를 찾아 리턴한다.
     public Object getBean(Class<?> type) {
         Collection<Object> objList = objPool.values();
@@ -126,34 +126,23 @@ public class ApplicationContext {
         
     }
     
-    private void injectDependency() {
-        //objPool에 보관된 객체 목록을 꺼낸다.
-        Collection<Object> objList = objPool.values();
+    /*private void callBeanPostProcessor() {
+        Collection<Object> objList = objPool.values()    ;
         
-        for(Object obj: objList) {
-          //목록에서 객체를 꺼내 @Autowired가 붙은 메서드를 찾는다.
+        // =>objPool에 보관된 객체 중에서 BeanPostProcessor 규칙을 준수하는 객체를 찾는다.
+        for(Object obj : objList) {
+            if(!BeanPostProcessor.class.isInstance(obj)) continue;
+               //obj가 앞에 BeanPostProcessor 규칙을 따르는 인스턴스라면!
             
-            Method[] methods = obj.getClass().getDeclaredMethods();
-            for(Method m: methods) {
-                if(!m.isAnnotationPresent(Autowired.class)) continue;
-                
-                //setter 메서드의 파라미터 타입을 알아낸다.
-                Class<?> paramType = m.getParameterTypes()[0];//원래는 파라미터 타입들을 변수로 리턴하는데 여기서는 그냥 한개만!
-                
-                // 그 파라미터 타입과 일치하는 객체가 objPool에서 꺼낸다.
-                Object dependency = getBean(paramType);
-                
-                if(dependency ==null) continue;
-                
-                try {
-                    m.invoke(obj, dependency);
-                    System.out.printf("%s() 호출됨\n",m.getName());
-                } catch (Exception e) {}
-                    
-            }
+            BeanPostProcessor processor = (BeanPostProcessor) obj;
+            processor.setObjectPool(objPool);
+            
+            postProcessPerObject(processor);// 위에서 받은 
         }
         
-    }
+    }*/
+
+    
 }
 
 
