@@ -18,7 +18,7 @@ public class StudentFileDao implements StudentDao {
     
     public StudentFileDao() {
         File dataFile = new File("data/student.dat");
-        try (
+        try (//자동으로 닫히게 하려고 이렇게 쓰는것임
             BufferedReader in = 
                 new BufferedReader(new FileReader(dataFile))
         ){
@@ -93,10 +93,11 @@ public class StudentFileDao implements StudentDao {
         for (Student item : list) {
             if (item.getEmail().equals(email)) {
                 list.remove(item);
+                save();
                 return 1;
             }
         }
-        save();
+        
         return 0;
     }
 }

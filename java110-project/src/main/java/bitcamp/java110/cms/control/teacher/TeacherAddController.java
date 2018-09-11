@@ -11,7 +11,7 @@ import bitcamp.java110.cms.domain.Teacher;
 @Component
 public class TeacherAddController {
     
-    TeacherDao teacherDao = new TeacherDao();
+    TeacherDao teacherDao;
     
     @Autowired
     public void setTeacherDao(TeacherDao teacherDao) {

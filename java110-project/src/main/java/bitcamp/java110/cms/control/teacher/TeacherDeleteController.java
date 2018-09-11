@@ -10,7 +10,7 @@ import bitcamp.java110.cms.dao.TeacherDao;
 @Component
 public class TeacherDeleteController {
     
-    TeacherDao teacherDao = new TeacherDao();
+    TeacherDao teacherDao;
     
     @Autowired
     public void setTeacherDao(TeacherDao teacherDao) {
