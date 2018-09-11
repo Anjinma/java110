@@ -9,7 +9,7 @@ import bitcamp.java110.cms.dao.StudentDao;
 
 @Component//자동으로 객체생성하라!
 public class StudentDeleteController {
-    StudentDao studentDao = new StudentDao();
+    StudentDao studentDao;
     
     @Autowired
     public void setStudentDao(StudentDao studentDao) {

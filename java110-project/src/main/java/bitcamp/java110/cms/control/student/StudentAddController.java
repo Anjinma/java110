@@ -11,7 +11,7 @@ import bitcamp.java110.cms.domain.Student;
 @Component//자동으로 객체생성하라!
 public class StudentAddController {
     
-    StudentDao studentDao = new StudentDao();
+    StudentDao studentDao;
     
     @Autowired
     public void setStudentDao(StudentDao studentDao) {
