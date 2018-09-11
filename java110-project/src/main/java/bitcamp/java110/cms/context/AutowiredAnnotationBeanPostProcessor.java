@@ -8,7 +8,8 @@ import bitcamp.java110.cms.annotation.Component;
 
 // Bean이 생성된 후에 동작할 놈~~!!
 @Component//자동생성
-public class AutowiredAnnotationBeanPostProcessor {//@Autowired 애노테이션 처리할 놈이다!~
+public class AutowiredAnnotationBeanPostProcessor    //@Autowired 애노테이션 처리할 놈이다!~ 
+                implements BeanPostProcessor{
     
     ApplicationContext beanContainer;
     
