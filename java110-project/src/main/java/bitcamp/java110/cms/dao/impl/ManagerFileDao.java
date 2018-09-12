@@ -8,11 +8,11 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import bitcamp.java110.cms.annotation.Component;
 import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.domain.Manager;
 
-@Component
+//자동 생성하지 마라
+//@Component   
 public class ManagerFileDao implements ManagerDao{
     private List<Manager> list = new ArrayList<>();
 

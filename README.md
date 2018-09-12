@@ -2,17 +2,27 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
-## v2.0
+## java110-project (tag: v2.1)
+
+- 객체 Serialize/Deserialize 적용
+- java.io.Serializable 인터페이스 활용
+- transient modifier 사용법
+
+## java110-project (tag: v2.0.1)
+
+- 인터페이스와 구현체를 별도의 패키지로 분리하기
+
+## java110-project (tag: v2.0)
 
 - DAO에 파일 입출력 도입
 - DAO에 인터페이스 적용
 
-## v1.9
+## java110-project (tag: v1.9)
 
 - IoC 컨테이너가 객체 생성 후에 수행하는 작업을 별도의 클래스로 분리한다.
 - 향후 객체 생성 후에 또 다른 작업을 추가하기 쉽도록 한다.
 
-## v1.8
+## java110-project (tag: v1.8)
 
 - 의존 객체 주입하기
 - 미니 IoC컨테이너 개선
