@@ -13,7 +13,9 @@
 
 ## v2.1
 
-- 
+- 객체 Serialize/Deserialize 적용
+- java.io.Serializable 인터페이스 활용
+- transient modifier 사용법
 
 ## v2.0
 
