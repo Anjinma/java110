@@ -17,10 +17,14 @@ import bitcamp.java110.cms.domain.Student;
 @Component
 public class StudentFile2Dao implements StudentDao {
 
+    static String defaultFilename = "data/student2.dat";
+    String filename;
     private List<Student> list = new ArrayList<>();
 
-    public StudentFile2Dao() {
-        File dataFile = new File("data/student.dat");
+    public StudentFile2Dao(String filename) {
+        this.filename=filename;
+        
+        File dataFile = new File(filename);
         try (
                 FileInputStream in0 = new FileInputStream(dataFile);
                 BufferedInputStream in1 = new BufferedInputStream(in0);
@@ -40,8 +44,12 @@ public class StudentFile2Dao implements StudentDao {
         }
     }
 
+    public StudentFile2Dao() {
+        this(defaultFilename);
+    }
+    
     private void save() {
-        File dataFile = new File("data/student.dat");
+        File dataFile = new File(filename);
         try (
                 FileOutputStream out0=new FileOutputStream(dataFile);
                 BufferedOutputStream out1 = new BufferedOutputStream(out0);

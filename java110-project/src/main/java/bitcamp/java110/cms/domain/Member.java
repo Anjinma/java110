@@ -7,7 +7,8 @@ public class Member implements Serializable{//Serializable 인터페이스는 �
     
     protected String name;
     protected String email;
-    protected String password;
+    //trasient 필드 : serialize(직렬화) 대상에서 제외된다.
+    protected transient String password;
     
     public String getName() {
         return name;

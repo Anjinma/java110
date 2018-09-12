@@ -16,11 +16,16 @@ import bitcamp.java110.cms.domain.Teacher;
 
 @Component
 public class TeacherFile2Dao implements TeacherDao{
+    
+    static String defaultFilename = "data/teacher2.dat";
+    String filename;
     private List<Teacher> list = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
-    public TeacherFile2Dao() {
-        File dataFile=new File("data/teacher.dat");
+    public TeacherFile2Dao(String filename) {
+        this.filename=filename;
+
+        File dataFile = new File(filename);
         try(
                 FileInputStream in0=new FileInputStream(dataFile);
                 BufferedInputStream in1 = new BufferedInputStream(in0);
@@ -35,9 +40,12 @@ public class TeacherFile2Dao implements TeacherDao{
         }
     }
 
+    public TeacherFile2Dao() {
+        this(defaultFilename);
+    }
 
     private void save() {
-        File dataFile = new File("data/teacher.dat");
+        File dataFile = new File(filename);
 
         try(FileOutputStream out0=new FileOutputStream(dataFile);
                 BufferedOutputStream out1 = new BufferedOutputStream(out0);
