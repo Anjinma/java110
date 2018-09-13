@@ -9,7 +9,7 @@ import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.dao.StudentDao;
 import bitcamp.java110.cms.domain.Student;
 
-@Component//자동으로 객체생성하라!
+@Component
 public class StudentListController {
     
     StudentDao studentDao;
@@ -18,13 +18,13 @@ public class StudentListController {
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
-    
+
     @RequestMapping("student/list")
     public void list(Scanner keyIn) {
         List<Student> list = studentDao.findAll();
         
         for (Student s : list) {
-            System.out.printf(" %s, %s, %s, %s, %b, %s\n",
+            System.out.printf("%s, %s, %s, %s, %b, %s\n",
                     s.getName(), 
                     s.getEmail(), 
                     s.getPassword(), 

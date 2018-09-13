@@ -2,12 +2,13 @@ package bitcamp.java110.cms.domain;
 
 import java.io.Serializable;
 
-public class Member implements Serializable{//Serializable 인터페이스는 선언으로의 의
+public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     protected String name;
     protected String email;
-    //trasient 필드 : serialize(직렬화) 대상에서 제외된다.
+    
+    // transient 필드: serialize 대상에서 제외된다. 
     protected transient String password;
     
     public String getName() {

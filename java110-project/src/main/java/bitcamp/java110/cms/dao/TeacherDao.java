@@ -4,12 +4,10 @@ import java.util.List;
 
 import bitcamp.java110.cms.domain.Teacher;
 
-//@Component
 public interface TeacherDao {
-
-    //안써줘도 interface안에 메서드는 public abstract
-    int insert(Teacher teacher);
+    int insert(Teacher teacher)
+            throws MandatoryValueDaoException, DuplicationDaoException;
     List<Teacher> findAll();
-    Teacher findByEmail(String email) ;
-    int delete(String email) ;
+    Teacher findByEmail(String email);
+    int delete(String email);
 }

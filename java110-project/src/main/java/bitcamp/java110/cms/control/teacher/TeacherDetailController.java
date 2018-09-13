@@ -17,17 +17,18 @@ public class TeacherDetailController {
     public void setTeacherDao(TeacherDao teacherDao) {
         this.teacherDao = teacherDao;
     }
-    
+
     @RequestMapping("teacher/detail")
     public void detail(Scanner keyIn) {
         System.out.print("조회할 강사의 이메일? ");
         String email = keyIn.nextLine();
         Teacher t = teacherDao.findByEmail(email);
-
-        if(t==null) {
-            System.out.println("해당 이메일의 강사 정보가 없습니다.");
+        
+        if (t == null) {
+            System.out.println("해당 이메일의 강사 정보가 없습니다!");
             return;
         }
+        
         System.out.printf("이름: %s\n", t.getName());
         System.out.printf("이메일: %s\n", t.getEmail());
         System.out.printf("암호: %s\n", t.getPassword());

@@ -6,7 +6,7 @@ import bitcamp.java110.cms.annotation.Component;
 import bitcamp.java110.cms.annotation.RequestMapping;
 
 @Component
-public class HelloController  {
+public class HelloController {
 
     @RequestMapping("hello")
     public void hello(Scanner keyIn) {
