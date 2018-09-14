@@ -13,7 +13,7 @@ public class ClientApp {
     public static void main(String[] args) throws Exception {
         try (//autocloseable 구현한것만 올 수 있다.
                 //서버 연결하기
-                Socket socket = new Socket("localhost",8888);
+                Socket socket = new Socket("192.168.0.3",8888);
 
                 //서버에 데이터를 보내고/읽을 도구를 준비하기
                 //통째로 리턴  outputStream
