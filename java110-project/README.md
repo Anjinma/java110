@@ -1,11 +1,33 @@
 # java110-project
 
-##
+## v2.5
+
+- Spring IoC 컨테이너 도입
+- 기존에 만들었던 ApplicationContext 대신에 Spring 프레임워크에서 제공하는 ApplicationContext 사용하기
+- 작업
+    - Spring IoC 컨테이너 라이브러리 추가(build.gradle 파일 편집)
+        - "spring context" 로 mvnrepository.com에서 검색한다.
+        - 명령창에서 "gradle eclipse" 실행한다.
+        - 이클립스에서 프로젝트를 "refresh" 한다.
+    - 스프링 설정 파일 추가(application-context.xml)
+        - bitcamp/java110/cms/conf/application-context.xml
+    - 기존의 ApplicationContext 관련 클래스들을 제거한다.
+    - 기존의 @Autowired, @Component 애노테이션을 제거한다.
+    - 기존 클래스에서 사용한 애노테이션을 Spring 프레임워크에서 제공하는 것으로 바꾼다.
 
 ## v2.4
 
-- DB 커넥션풀 적용
-- DB 연결 객체를 재사용하여 사비지를 줄이고, 실행 속도를 높이기 위함
+- DB 커넥션 공유하기
+- DB 연결 객체를 재사용하여 가비지를 줄이고, 실행 속도를 높이기 위함
+
+## v2.3
+
+- DAO에 JDBC 적용
+- 작업 
+    - Data Modeling과 forward engineering 수행
+    - 테이블 준비
+    - JDBC API 활용
+    - 트랜잭션 다루기
 
 ## v2.2
 

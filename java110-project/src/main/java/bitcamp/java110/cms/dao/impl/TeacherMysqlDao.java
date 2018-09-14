@@ -6,8 +6,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import bitcamp.java110.cms.annotation.Autowired;
-import bitcamp.java110.cms.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import bitcamp.java110.cms.dao.DaoException;
 import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Teacher;
@@ -17,7 +18,7 @@ import bitcamp.java110.cms.util.DataSource;
 public class TeacherMysqlDao implements TeacherDao {
 
     DataSource dataSource;
-
+    
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -28,7 +29,6 @@ public class TeacherMysqlDao implements TeacherDao {
         Statement stmt = null;
         
         try {
-            
             con = dataSource.getConnection();
             
             con.setAutoCommit(false);
@@ -59,7 +59,7 @@ public class TeacherMysqlDao implements TeacherDao {
             return 1;
             
         } catch (Exception e) {
-            try {con.rollback();} catch (Exception e1) {}
+            try {con.rollback();} catch (Exception e2) {}
             throw new DaoException(e);
             
         } finally {
@@ -217,7 +217,7 @@ public class TeacherMysqlDao implements TeacherDao {
             return 1;
             
         } catch (Exception e) {
-            try {con.rollback();} catch (Exception e1) {}
+            try {con.rollback();} catch (Exception e2) {}
             throw new DaoException(e);
             
         } finally {

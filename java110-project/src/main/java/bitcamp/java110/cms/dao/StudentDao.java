@@ -5,11 +5,11 @@ import java.util.List;
 import bitcamp.java110.cms.domain.Student;
 
 public interface StudentDao {
-    int insert(Student student) ;
+    int insert(Student student);
     List<Student> findAll();
     Student findByEmail(String email);
-    Student findByNo(int no) ;
-    int delete(int no) ;
+    Student findByNo(int no);
+    int delete(int no);
 }
 
 
