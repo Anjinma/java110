@@ -76,7 +76,6 @@ public class ManagerMysqlDao implements ManagerDao {
             con = dataSource.getConnection();
             
             stmt = con.createStatement();
-            
             rs = stmt.executeQuery(
                     "select" + 
                     " m.mno," +
