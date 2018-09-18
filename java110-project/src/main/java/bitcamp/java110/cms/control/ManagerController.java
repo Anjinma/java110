@@ -52,6 +52,7 @@ public class ManagerController {
             out.println("해당 번호의 매니저가 없습니다!");
         }
     }
+    
     @RequestMapping("manager/detail")
     public void detail(Request request, Response response) {
         
@@ -85,8 +86,6 @@ public class ManagerController {
                     s.getPosition());
         }
     }
-    
-    
 }
     
     

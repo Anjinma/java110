@@ -73,6 +73,7 @@ public class TeacherController {
         out.printf("시급: %d\n", t.getPay());
         out.printf("강의과목: %s\n", t.getSubjects());
     }
+    
     @RequestMapping("teacher/list")
     public void list(Request request, Response response) {
         
@@ -88,5 +89,4 @@ public class TeacherController {
                     t.getSubjects());
         }
     }
-    
 }

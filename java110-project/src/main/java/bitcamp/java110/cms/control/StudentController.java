@@ -52,7 +52,6 @@ public class StudentController {
         }
     }
     
-    
     @RequestMapping("student/detail")
     public void detail(Request request, Response response) {
         
@@ -87,5 +86,4 @@ public class StudentController {
                     s.isWorking());
         }
     }
-    
 }
