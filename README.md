@@ -2,6 +2,27 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
+## java110-project (tag: v3.0)
+
+-
+
+## java110-project (tag: v2.9)
+
+- Command 패턴으로 분할된 메서드를 한 클래스로 합치기
+- 관련된 컨트롤러 클래스를 한 클래스로 만든다.
+    - ManagerListController, ManagerAddController, ManagerDetailController, ManagerDeleteController
+    클래스를 ManagerController클래스로 합친다.
+    - 학생관리와 강사관리도 마찬가지이다.
+    - 각각의 컨트롤러가 크지 않을 때는 관리하기 쉽게 한 클래스로 합치기도 한다.
+
+## java110-project (tag: v2.8)
+
+- 
+
+## java110-project (tag: v2.7)
+
+- 
+
 ## java110-project (tag: v2.6)
 
 - Client/Server 구조로 변경
