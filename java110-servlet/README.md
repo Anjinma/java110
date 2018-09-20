@@ -141,7 +141,6 @@ http://localhost:8888/index.html
 
 ### 웹 애플리케이션 서버(Web Application Server)
 
-
 #### 개요
 
 - JavaEE Spec. 에 따라 만든 서버이다.
