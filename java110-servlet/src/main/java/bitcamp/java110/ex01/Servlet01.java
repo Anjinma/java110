@@ -42,7 +42,7 @@ public class Servlet01 implements Servlet {
     ServletConfig config;
     
     public Servlet01() {
-        System.out.println("Servlet01() 호출됨.");
+        System.out.println("Servlet01 호출됨.");
     }
     
     @Override
@@ -70,7 +70,6 @@ public class Servlet01 implements Servlet {
         // 그래서 클라이언트가 요청한 일을 수행한다.
         // 예를 들면, 게시물 목록을 출력하거나 로그인을 처리하거나 회원 가입을 처리하는 등의 일을 한다.
         System.out.println("service() 호출됨.");
-        
     }
 
     @Override
