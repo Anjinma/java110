@@ -12,40 +12,46 @@ import javax.servlet.http.HttpServletResponse;
 import bitcamp.java110.cms.dao.TeacherDao;
 
 @WebServlet("/teacher/delete")
-public class TeacherDeleteServlet extends HttpServlet{
+public class TeacherDeleteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
-
-
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(
+            HttpServletRequest request, 
+            HttpServletResponse response) 
             throws ServletException, IOException {
-        
+
         int no = Integer.parseInt(request.getParameter("no"));
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         
-        TeacherDao teacherDao = (TeacherDao)this.getServletContext().getAttribute("teacherDao");
-        
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<meta charset='UTF-8'>");
-        out.println("<title>강사 관리</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>강사 삭제결과</h1>");
+        TeacherDao teacherDao = (TeacherDao)this.getServletContext()
+                .getAttribute("teacherDao");
         
         try {
             teacherDao.delete(no);
-            out.println("<p>삭제하였습니다.</p>");
-        } catch(Exception e) {
+            response.sendRedirect("list");
+            
+        } catch (Exception e) {
             e.printStackTrace();
-            out.println("<p>삭제 중 오류 발생!</p>");
+            
+            response.setHeader("Refresh", "3;url=list");
+            response.setContentType("text/html;charset=UTF-8");
+            
+            PrintWriter out = response.getWriter();
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset='UTF-8'>");
+            out.println("<title>강사 관리</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>강사 삭제 오류!</h1>");
+            out.printf("<p>%s</p>\n", e.getMessage());
+            out.println("<p>잠시 기다리면 목록 페이지로 자동으로 이동합니다.</p>");
+            out.println("</body>");
+            out.println("</html>");
         }
         
-        out.println("</body>");
-        out.println("</html>");
     }
 
 }

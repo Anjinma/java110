@@ -1,8 +1,9 @@
-/*  리프레시
- * => 서버가 보낸 콘텐트를 클라이언트가 출력한 후에
- *    지정한 URL로 자동으로 서버에 요청하게 만드는 기술
+/*  포워드
+ * => 다른 서블릿으로 작업을 위임하는 기술
+ *    이전 서블릿에서 출력한 내용이 있다면 포워드 전에 버린다.
+ *    그래서 작업을 위임 받은 서블릿에서 새로 출력한다.
  */
-package bitcamp.java110.ex08;
+package bitcamp.java110.ex09;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value="/ex08/servlet01")
-public class Servlet01 extends HttpServlet {
+@WebServlet(value="/ex09/servlet03")
+public class Servlet03 extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     @Override
@@ -22,11 +23,6 @@ public class Servlet01 extends HttpServlet {
             HttpServletRequest req, 
             HttpServletResponse res) 
             throws ServletException, IOException {
-
-        // 방법1)
-        // => 응답 헤더에 리프레시 명령을 추가하기
-        // => 다음은 응답내용을 출력한 후, 2초 후에 http://daum.net을 요청하라는 명령
-        //res.setHeader("Refresh", "2;url=http://daum.net");
         
         
         res.setContentType("text/html;charset=UTF-8");
@@ -35,23 +31,16 @@ public class Servlet01 extends HttpServlet {
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        
-        // 방법2)
-        // => HTML의 <meta> 태그에 리프래시 명령을 설정할  수 있다.
-        out.println("<meta http-equiv='Refresh' content='5;url=http://naver.com'>");
-        
         out.println("<meta charset='UTF-8'>");
         out.println("<title>ex08</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>Servlet01 실행!</h1>");
+        out.println("<h1>계산 오류</h1>");
+        out.printf("<p>'%s' 연산자를 지원하지 않습니다.</p>\n",req.getAttribute("op"));
         out.println("</body>");
         out.println("</html>");
     }
 }
-
-
-
 
 
 

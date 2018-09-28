@@ -13,48 +13,54 @@ import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Teacher;
 
 @WebServlet("/teacher/add")
-public class TeacherAddServlet extends HttpServlet{
+public class TeacherAddServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
-
-
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(
+            HttpServletRequest request, 
+            HttpServletResponse response) 
             throws ServletException, IOException {
-
+        
         request.setCharacterEncoding("UTF-8");
         
-        Teacher m = new Teacher();
-        m.setName(request.getParameter("name"));
-        m.setEmail(request.getParameter("email"));
-        m.setPassword(request.getParameter("password"));
-        m.setTel(request.getParameter("tel"));
-        m.setPay(Integer.parseInt(request.getParameter("pay")));
-        m.setSubjects(request.getParameter("subjects"));
+        Teacher t = new Teacher();
+        t.setName(request.getParameter("name"));
+        t.setEmail(request.getParameter("email"));
+        t.setPassword(request.getParameter("password"));
+        t.setTel(request.getParameter("tel"));
+        t.setPay(Integer.parseInt(request.getParameter("pay")));
+        t.setSubjects(request.getParameter("subjects"));
         
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        TeacherDao teacherDao = (TeacherDao)this.getServletContext().getAttribute("teacherDao");
-        
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<meta charset='UTF-8'>");
-        out.println("<title>강사 관리</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>강사 등록 결과</h1>");
+        TeacherDao teacherDao = (TeacherDao)this.getServletContext()
+                .getAttribute("teacherDao");
         
         try {
-            teacherDao.insert(m);
-            out.println("<p>저장하였습니다.</p>");
+            teacherDao.insert(t);
+            response.sendRedirect("list");
+            
         } catch(Exception e) {
             e.printStackTrace();
-            out.println("<p>등록 중 오류 발생!</p>");
+            
+            response.setHeader("Refresh", "3;url=list");
+            response.setContentType("text/html;charset=UTF-8");
+            
+            PrintWriter out = response.getWriter();
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset='UTF-8'>");
+            out.println("<title>강사 관리</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>강사 등록 오류!</h1>");
+            out.printf("<p>%s</p>\n", e.getMessage());
+            out.println("<p>잠시 기다리면 목록 페이지로 자동으로 이동합니다.</p>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        out.println("</body>");
-        out.println("</html>");
+        
     }
-    
+
 }

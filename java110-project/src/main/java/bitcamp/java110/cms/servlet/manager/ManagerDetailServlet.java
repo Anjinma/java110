@@ -13,16 +13,19 @@ import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.domain.Manager;
 
 @WebServlet("/manager/detail")
-public class ManagerDetailServlet extends HttpServlet{ 
+public class ManagerDetailServlet extends HttpServlet { 
     private static final long serialVersionUID = 1L;
-
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(
+            HttpServletRequest request, 
+            HttpServletResponse response) 
             throws ServletException, IOException {
         
-        ManagerDao managerDao = (ManagerDao)this.getServletContext().getAttribute("managerDao");
         int no = Integer.parseInt(request.getParameter("no"));
+
+        ManagerDao managerDao = (ManagerDao)this.getServletContext()
+                .getAttribute("managerDao");
         Manager m = managerDao.findByNo(no);
         
         response.setContentType("text/html;charset=UTF-8");
@@ -34,9 +37,9 @@ public class ManagerDetailServlet extends HttpServlet{
         out.println("<meta charset='UTF-8'>");
         out.println("<title>매니저 관리</title>");
         out.println("<style>");
-        out.println("    table,td,th{");
-        out.println("        border: 1px solid gray;");
-        out.println("    }");
+        out.println("table, th, td {");
+        out.println("    border: 1px solid gray;");
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
@@ -46,24 +49,22 @@ public class ManagerDetailServlet extends HttpServlet{
             out.println("<p>해당 번호의 매니저가 없습니다!</p>");
         } else {
             out.println("<table>");
-            out.println("   <tbody>");
-            out.printf("    <tr><th>번호</th> <td>%d</td></tr>\n",m.getNo());
-            out.printf("    <tr><th>이름</th> <td>%s</td></tr>\n",m.getName());
-            out.printf("    <tr><th>이메일</th> <td>%s</td></tr>\n",m.getEmail());
-            out.printf("    <tr><th>암호</th> <td>%s</td></tr>\n",m.getPassword());
-            out.printf("    <tr><th>전화</th> <td>%s</td></tr>\n",m.getTel());
-            out.printf("    <tr><th>직위</th> <td>%s</td></tr>\n",m.getPosition());
-            out.println("    </tbody>");
+            out.println("<tbody>");
+            out.printf("<tr><th>번호</th><td>%d</td></tr>\n", m.getNo());
+            out.printf("<tr><th>이름</th><td>%s</td></tr>\n", m.getName());
+            out.printf("<tr><th>이메일</th><td>%s</td></tr>\n", m.getEmail());
+            out.printf("<tr><th>암호</th><td>%s</td></tr>\n", m.getPassword());
+            out.printf("<tr><th>전화</th><td>%s</td></tr>\n", m.getTel());
+            out.printf("<tr><th>직위</th><td>%s</td></tr>\n", m.getPosition());
+            out.println("</tbody>");
             out.println("</table>");
             
             out.println("<button type='button' onclick='remove()'>삭제</button>");
         }
         
-        // 자바스크립트는 웹 브라우저에서 실행하는 것이다.(서버에서 실행하는 것이 아니다!)
-        // 이 코드를 웹브라우저에 보내는 것!
         out.println("<script>");
         out.println("function remove() {");
-        out.printf("    location.href = 'delete?no=%d'\n",m.getNo());
+        out.printf("    location.href = 'delete?no=%d'\n", m.getNo());
         out.println("}");
         out.println("</script>");
         
