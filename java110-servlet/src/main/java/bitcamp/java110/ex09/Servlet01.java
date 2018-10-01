@@ -36,7 +36,7 @@ public class Servlet01 extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<title>ex08</title>");
+        out.println("<title>ex09</title>");
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>더하기 계산 결과</h1>");
