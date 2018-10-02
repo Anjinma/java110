@@ -35,8 +35,6 @@ public class AuthFilter implements Filter{
                 httpResponse.sendRedirect("/auth/login");
                 return;
             }
-            
-            
         }
         
         chain.doFilter(request, response);
