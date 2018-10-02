@@ -37,7 +37,7 @@ public class ManagerListServlet extends HttpServlet {
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
         out.println("<title>매니저 관리</title>");
-        out.println("<link rel='stylesheet' href='../css/common.css'>");//상대경로를 적는다!
+        out.println("<link rel='stylesheet' href='../css/common.css'>");
         out.println("<style>");
         out.println("table, th, td {");
         out.println("    border: 1px solid gray;");

@@ -48,7 +48,7 @@ public class ManagerAddServlet extends HttpServlet {
             // 오류 내용을 처리하는 서블릿으로 실행을 위임한다.
             RequestDispatcher rd = request.getRequestDispatcher("/error");
             
-            // 위임하기 전에 작업을 수행하는데 필요한 정보를
+            // 위임하기 전에 작업을 수행하는데 필요한 정보를 
             // ServletRequest 보관소에 담아 전달한다.
             request.setAttribute("error", e);
             request.setAttribute("message", "매니저 등록 오류!");
@@ -56,7 +56,6 @@ public class ManagerAddServlet extends HttpServlet {
             
             // 작업을 위임한다.
             rd.forward(request, response);
-            
         }
         
     }
