@@ -9,6 +9,9 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    // JSTL 구현 라이브러리
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    
     //Servlet API 라이브러리
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
  
