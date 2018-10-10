@@ -1,5 +1,5 @@
-/* 서블릿 만들기 
- * - javax.servlet.http.HttpServlet 인터페이스 구현
+/* 서블릿 만들기 III
+ * - javax.servlet.http.HttpServlet 상속 받기
  * 
  */
 package bitcamp.java110.ex02;
@@ -20,9 +20,8 @@ public class Servlet03 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Servlet03.doGet() 호출됨.");
     }
-
-
 }
+
 
 
 

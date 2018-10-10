@@ -1,4 +1,4 @@
-/* 서블릿 만들기 
+/* 서블릿 만들기 I
  * - javax.servlet.Servlet 인터페이스 구현
  * 
  */
@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+
 @WebServlet("/ex02/servlet01")
 public class Servlet01 implements Servlet {
 
@@ -46,9 +47,11 @@ public class Servlet01 implements Servlet {
     @Override
     public void destroy() {
         System.out.println("destroy() 호출됨.");
+        
     }
 
 }
+
 
 
 

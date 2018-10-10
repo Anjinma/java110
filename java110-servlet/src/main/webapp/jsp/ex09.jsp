@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" 
+    contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
@@ -8,15 +9,33 @@
 <title>JSP</title>
 </head>
 <body>
-<h1>RequestDistpatcher의 including vs include 지시 명령</h1>
+<h1>RequestDispatcher의 including vs include 지시명령 </h1>
 
 <jsp:include page="ex09_1.jsp"/>
 
 <hr>
+
 <jsp:include page="ex09_2.jsp"/>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

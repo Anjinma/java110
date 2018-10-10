@@ -1,6 +1,5 @@
-/* 클라이언트가 보낸 데이터 읽기 - 멀티파트 데이터 읽기
- * 오픈소스와 최신 메소드 두가지 방법 할거임~
- * 이번건 API에 있는 Part 인터페이스 이용
+/* 클라이언트가 보낸 데이터 읽기 - 멀티파트 데이터 읽기 II
+ * 
  */
 package bitcamp.java110.ex04;
 
@@ -84,26 +83,39 @@ Referer: http://localhost:8888/ex04/file.html
 Accept-Encoding: gzip, deflate, br
 Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6
 Connection: keep-alive
+
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6
 Content-Disposition: form-data; name="name"
+
 임꺽정
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6
 Content-Disposition: form-data; name="age"
+
 20
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6
 Content-Disposition: form-data; name="working"
+
 true
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6
 Content-Disposition: form-data; name="file1"; filename="bit_logo.gif"
 Content-Type: image/gif
+
 GIF89a...
 ...
 ...
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6
 Content-Disposition: form-data; name="file2"; filename=""
 Content-Type: application/octet-stream
+
+
 ------WebKitFormBoundarywdrfxUyAhH3oLyQ6--
+
  */
+
+
+
+
+
 
 
 

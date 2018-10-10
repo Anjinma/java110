@@ -20,6 +20,12 @@
 	</classpathentry>
 	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10/"/>
+	<classpathentry sourcepath="C:/Users/bit/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar" kind="lib" path="C:/Users/bit/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/bit/.gradle/caches/modules-2/files-2.1/org.mariadb.jdbc/mariadb-java-client/2.3.0/9e761bb0474d99884a020ca562944c3a3b872bfc/mariadb-java-client-2.3.0-sources.jar" kind="lib" path="C:/Users/bit/.gradle/caches/modules-2/files-2.1/org.mariadb.jdbc/mariadb-java-client/2.3.0/c2b1a6002a169757d0649449288e9b3b776af76b/mariadb-java-client-2.3.0.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
