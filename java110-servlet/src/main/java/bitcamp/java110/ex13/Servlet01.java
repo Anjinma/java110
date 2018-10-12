@@ -42,7 +42,7 @@ public class Servlet01 extends HttpServlet {
             Thread.sleep(delayTime); //밀리초
         } catch (Exception e) {}
         
-        // Servlet03으로 실행를 위임한다.
+        // Servlet02으로 실행를 위임한다.
         RequestDispatcher rd = request.getRequestDispatcher("/ex13/servlet02");
         rd.forward(request, response);
         
