@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- IoC컨테이너.보관("c1", CarFactory1.create("소나타")); -->
+	<bean class="ex01.CarFactory1" factory-method="create" id="c1">
+		<!-- 그 팩토리의 create 메서드를 호출해서 c1이란 이름으로 리런값을 저장 즉 c1은 Car 객체가 되는것. -->
+		<constructor-arg value="소나타" />
+	</bean>
+	
+	
+</beans>
