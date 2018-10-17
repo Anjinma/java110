@@ -2,6 +2,87 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
+## java110-project (tag: v5.8)
+
+- Mybatis에서 자동으로 생성해주는 Mapper(DAO) 객체 사용하기
+- Mybatis에서 트랜잭션 다루기
+
+
+## java110-project (tag: v5.7)
+
+- Mybatis persistence framework 적용하기
+
+## java110-project (tag: v5.6)
+
+- Statement를 PreparedStatement로 변경하기
+
+## java110-project (tag: v5.5)
+
+- 트랜잭션 관리하기
+
+## java110-project (tag: v5.4)
+
+- Service 컴포넌트 적용
+
+## java110-project (tag: v5.3)
+
+- 파일 업로드 적용
+
+## java110-project (tag: v5.2)
+
+- JSTL 적용
+
+## java110-project (tag: v5.1)
+
+- EL 적용
+
+## java110-project (tag: v5.0)
+
+- JSP 액션 태그 적용
+
+## java110-project (tag: v4.9)
+
+- JSP를 활용한 MVC 모델 1 타입 적용
+- Servlet + JSP를 활용한 MVC 모델 2 타입 적용
+
+## java110-project (tag: v4.8)
+
+- 필터를 이용하여 사용 권한 제어하기
+
+## java110-project (tag: v4.7)
+
+- 세션 적용하기
+
+## java110-project (tag: v4.6)
+
+- 쿠키 적용하기
+
+## java110-project (tag: v4.5, v4.5.1)
+
+- 포워드, 인클루드 적용하기
+
+
+## java110-project (tag: v4.4)
+
+- 리프래시, 리다이렉트 적용하기
+
+## java110-project (tag: v4.3)
+
+- HTML 출력하기
+
+
+## java110-project (tag: v4.2)
+
+- 리스너를 이용하여 공용 자원을 준비하기
+
+## java110-project (tag: v4.1)
+
+- 서블릿의 loadOnStartup 배치 속성을 이용하여 공용 자원을 준비하기
+
+## java110-project (tag: v4.0)
+
+- 서블릿 기술을 적용하여 서버 애플리케이션 만들기
+
 ## java110-project (tag: v3.1) 
 
 - 웹서버를 중계 서버로 사용하기
