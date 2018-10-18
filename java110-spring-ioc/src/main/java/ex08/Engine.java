@@ -1,4 +1,4 @@
-package ex05;
+package ex08;
 
 public class Engine {
     private String maker;
@@ -21,7 +21,6 @@ public class Engine {
     }
 
     public void setMaker(String maker) {
-        System.out.println("Engine.setMaker() 호출됨!");
         this.maker = maker;
     }
 
@@ -30,7 +29,6 @@ public class Engine {
     }
 
     public void setValve(int valve) {
-        System.out.println("Engine.setValve() 호출됨!");
         this.valve = valve;
     }
 
@@ -39,7 +37,6 @@ public class Engine {
     }
 
     public void setDiesel(boolean isDiesel) {
-        System.out.println("Engine.setDiesel() 호출됨!");
         this.isDiesel = isDiesel;
     }
 
