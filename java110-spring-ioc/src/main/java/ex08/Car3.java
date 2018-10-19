@@ -3,32 +3,37 @@ package ex08;
 import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-public class Car {
+// @Qualifier 사용
+public class Car3 {
     private int no;
     private String model;
     private String maker;
     private int cc;
     private Date createdDate;
+    
+    @Autowired(required=false)
+    @Qualifier("e2")
     private Engine engine;
     
-    public Car() {
+    public Car3() {
         System.out.println("Car() 호출됨!");
     }
     
-    public Car(String model, int cc) {
+    public Car3(String model, int cc) {
         this.model = model;
         this.cc = cc;
         System.out.println("Car(String,int) 호출됨!");
     }
     
-    public Car(int cc, String maker) {
+    public Car3(int cc, String maker) {
         this.maker = maker;
         this.cc = cc;
         System.out.println("Car(int,String) 호출됨!");
     }
     
-    public Car(String model, int cc, Engine engine) {
+    public Car3(String model, int cc, Engine engine) {
         this.model = model;
         this.cc = cc;
         this.engine = engine;
@@ -77,12 +82,6 @@ public class Car {
     
     public Engine getEngine() {
         return engine;
-    }
-
-    //@Autowired // 해당 의존 객체가 없으면 스프링 IoC 컨테이너는 예외를 발생시킨다.
-    @Autowired(required=false) // 없으면 이 메서드를 호출하지 않는다.
-    public void setEngine(Engine engine) {
-        this.engine = engine;
     }
 
     @Override

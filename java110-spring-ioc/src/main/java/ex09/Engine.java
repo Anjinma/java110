@@ -1,5 +1,8 @@
-package ex08;
+package ex09;
 
+import org.springframework.stereotype.Component;
+
+@Component("e1")
 public class Engine {
     private String maker;
     private int valve;

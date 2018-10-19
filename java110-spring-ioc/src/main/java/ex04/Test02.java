@@ -1,8 +1,8 @@
 // 생성자 호출: <constructor-arg> 사용법
 //
 // XML 문법
-//        <constructor-arg><value>"소나타"</value></constructor-arg>
-//
+//      <constructor-arg><value>값</value></constructor-arg>
+//      <constructor-arg value="값"/>
 //
 package ex04;
 

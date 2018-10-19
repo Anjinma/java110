@@ -20,10 +20,10 @@ public class Car {
         this.cc = cc;
     }
     
-    public Car(int cc, String model) {
+    public Car(int cc, String maker) {
         System.out.println("Car(int, String) 기본 생성자 호출도미!");
         this.cc = cc;
-        this.model = model;
+        this.maker = maker;
     }
 
     public Car(String model, int cc, Engine engine) {

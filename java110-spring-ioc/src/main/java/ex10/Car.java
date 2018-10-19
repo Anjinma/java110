@@ -1,15 +1,19 @@
-package ex08;
+package ex10;
 
 import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("c1")
 public class Car {
     private int no;
     private String model;
     private String maker;
     private int cc;
     private Date createdDate;
+    
+    @Autowired
     private Engine engine;
     
     public Car() {
@@ -79,11 +83,6 @@ public class Car {
         return engine;
     }
 
-    //@Autowired // 해당 의존 객체가 없으면 스프링 IoC 컨테이너는 예외를 발생시킨다.
-    @Autowired(required=false) // 없으면 이 메서드를 호출하지 않는다.
-    public void setEngine(Engine engine) {
-        this.engine = engine;
-    }
 
     @Override
     public String toString() {
@@ -91,8 +90,4 @@ public class Car {
                 + ", engine=" + engine + "]";
     }
 
-    
-    
-    
-    
 }

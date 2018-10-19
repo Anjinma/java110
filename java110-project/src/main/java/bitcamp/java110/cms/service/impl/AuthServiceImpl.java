@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.dao.StudentDao;
@@ -11,14 +13,12 @@ import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Member;
 import bitcamp.java110.cms.service.AuthService;
 
+
+@Service
 public class AuthServiceImpl implements AuthService {
 
-    SqlSessionFactory sqlSessionFactory;
-
-    public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-        this.sqlSessionFactory = sqlSessionFactory;
-    }
-
+    @Autowired SqlSessionFactory sqlSessionFactory; // 이로인해 setter가 필요없어졌다
+    
     @Override
     public Member getMember(
             String email, String password, String memberType) {
