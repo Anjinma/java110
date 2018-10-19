@@ -1,5 +1,11 @@
 # java110-project
 
+## v6.0
+
+- Mybatis와 Spring IoC 컨테이너 연동
+- 작업
+    - mybatis-spring
+
 ## v5.8
 
 - Mybatis에서 자동으로 생성해주는 Mapper(DAO) 객체 사용하기

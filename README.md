@@ -2,6 +2,16 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
+## java110-project (tag: v6.0)
+
+- Mybatis와 Spring IoC 컨테이너 연동
+
+
+## java110-project (tag: v5.9)
+
+- Mybatis에서 자동으로 생성해주는 Mapper(DAO) 객체 사용하기
+- Mybatis에서 트랜잭션 다루기
+
 ## java110-project (tag: v5.8)
 
 - Mybatis에서 자동으로 생성해주는 Mapper(DAO) 객체 사용하기
