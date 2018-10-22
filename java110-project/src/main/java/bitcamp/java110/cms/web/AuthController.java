@@ -13,7 +13,7 @@ import bitcamp.java110.cms.mvc.RequestMapping;
 import bitcamp.java110.cms.service.AuthService;
 
 @Component
-public class LogController{
+public class AuthController{
 
     @Autowired
     AuthService authService;
@@ -21,7 +21,8 @@ public class LogController{
     @RequestMapping("/auth/login")
     public String login(
             HttpServletRequest request, 
-            HttpServletResponse response) {
+            HttpServletResponse response,
+            HttpSession session) {
 
         if(request.getMethod().equals("GET")) {
             return "/auth/form.jsp"; // 서버에게 어느 JSP로 가면 되는지 알려주느것이다.!
@@ -46,7 +47,7 @@ public class LogController{
 
         Member loginUser = authService.getMember(email, password, type);
 
-        HttpSession session = request.getSession();
+        session = request.getSession();
         if (loginUser != null) {
             session.setAttribute("loginUser", loginUser);
             String redirectUrl = null;
@@ -71,16 +72,10 @@ public class LogController{
 
     @RequestMapping("/auth/logout")
     public String logout(
-            HttpServletRequest request, 
-            HttpServletResponse response){
-
-        HttpSession session = request.getSession();
-
-        // 현재 세션 객체를 무효화시킨다.
+            HttpSession session){
         session.invalidate();
 
         return "redirect:login";
-
     }
 
 }
