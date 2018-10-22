@@ -1,4 +1,4 @@
-package bitcamp.java110.cms.web.auth;
+package bitcamp.java110.cms.web;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +13,8 @@ import bitcamp.java110.cms.mvc.RequestMapping;
 import bitcamp.java110.cms.service.AuthService;
 
 @Component
-public class LoginController{
-    
+public class LogController{
+
     @Autowired
     AuthService authService;
 
@@ -62,12 +62,27 @@ public class LoginController{
                 redirectUrl ="../manager/list";
                 break; 
             }
-           return "redirect:"+redirectUrl;
+            return "redirect:"+redirectUrl;
         } else {
             session.invalidate();
             return "redirect:login";
         }
     }
+
+    @RequestMapping("/auth/logout")
+    public String logout(
+            HttpServletRequest request, 
+            HttpServletResponse response){
+
+        HttpSession session = request.getSession();
+
+        // 현재 세션 객체를 무효화시킨다.
+        session.invalidate();
+
+        return "redirect:login";
+
+    }
+
 }
 
 
