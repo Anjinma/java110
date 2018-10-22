@@ -4,9 +4,6 @@ import java.sql.Date;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
 // @Resource = @Autowired + @Qualifier
 public class Car4 {
     private int no;
@@ -17,6 +14,7 @@ public class Car4 {
     
     @Resource(name="e2") // => @Autowired @Qualifier("e2")
     private Engine engine;
+    // 이렇게 필드에 쓰는것은 private이어도 꽂아 쓸 수 있다. 
     
     public Car4() {
         System.out.println("Car() 호출됨!");
