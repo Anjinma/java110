@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping("/ex03/test28")
 @SessionAttributes(value= {"name2","gender2"})
 public class Test28 {
-
     /*테스트
      
             http://localhost:8888/app/ex03/test28/m1
@@ -23,9 +22,9 @@ public class Test28 {
     @GetMapping(value="m1", produces="text/plain;charset=UTF-8")
     @ResponseBody
     public String m1(Model model, HttpSession session) throws Exception {
-        model.addAttribute("name2","홍길동");// 프론트컨트롤러가 세션에 보관
+        model.addAttribute("name2","임꺽순");// 프론트컨트롤러가 세션에 보관
         model.addAttribute("tel2","1111");
-        model.addAttribute("gender2","남자");// 프론트컨트롤러가 세션에 보관
+        model.addAttribute("gender2","여자");// 프론트컨트롤러가 세션에 보관
         
         session.setAttribute("age2", "20");// 페이지 컨트롤러가 세션에 보관
         
@@ -51,19 +50,10 @@ public class Test28 {
         return String.format("%s,%s,%s,%s\n",name2,tel2,gender2,age2 );
     }
     
+    //session 객체에서 직접 꺼내보쟈!
     @GetMapping(value="m3", produces="text/plain;charset=UTF-8")
     @ResponseBody
     public String m3(HttpSession session) throws Exception {
-
-        session.invalidate();
-        return String.format("세션을 무효화시켰다!\n");
-    }
-    
-    
-    //session 객체에서 직접 꺼내보쟈!
-    @GetMapping(value="m4", produces="text/plain;charset=UTF-8")
-    @ResponseBody
-    public String m4(HttpSession session) throws Exception {
 
         String name2 = (String)session.getAttribute("name2");
         String tel2= (String)session.getAttribute("tel2");
@@ -72,11 +62,10 @@ public class Test28 {
 
         return String.format("%s,%s,%s,%s\n",name2,tel2,gender2,age2 );
     }
-
     
-    @GetMapping(value="m5", produces="text/plain;charset=UTF-8")
+    @GetMapping(value="m4", produces="text/plain;charset=UTF-8")
     @ResponseBody
-    public String m5(
+    public String m4(
             /*
              다른 페이지 컨트롤러에 @SessionAttribute에서
              지정한 값을 받을 때?
@@ -91,9 +80,9 @@ public class Test28 {
     }
     
     
-    @GetMapping(value="m6", produces="text/plain;charset=UTF-8")
+    @GetMapping(value="m5", produces="text/plain;charset=UTF-8")
     @ResponseBody
-    public String m6(HttpSession session) throws Exception {
+    public String m5(HttpSession session) throws Exception {
         /*
         다른 페이지 컨트롤러에 @SessionAttribute에서
         지정한 값을 HttpSession 객체에서 직접 꺼낼 떄?
@@ -104,6 +93,22 @@ public class Test28 {
         String gender= (String)session.getAttribute("gender");
 
         return String.format("%s,%s,%s\n",name,tel,gender );
+    }
+    
+    @GetMapping(value="m6", produces="text/plain;charset=UTF-8")
+    @ResponseBody
+    public String m6(Model model) throws Exception {
+        
+        return "ex03.Test28.m6()";
+    }
+    
+    
+    @GetMapping(value="logout1", produces="text/plain;charset=UTF-8")
+    @ResponseBody
+    public String logout1(HttpSession session) throws Exception {
+        
+        session.invalidate();
+        return String.format("세션을 무효화시켰다!\n");
     }
     
 }
