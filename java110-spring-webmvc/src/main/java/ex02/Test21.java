@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.JsonSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 
 @Controller
 @RequestMapping("ex02/test21")
@@ -27,7 +27,7 @@ public class Test21 {
     방법1) 클라이언트가 보낸 JSON 데이터를 변수에 받아서 페이지 컨트롤러가 처리하기
     => 문자열을 자바 객체로 변환시켜줄 라리으버리를 추가해야 한다.
        google의 gson라이브러리를 사용해보자!
-
+    
 
 
      */

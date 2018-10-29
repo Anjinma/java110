@@ -13,7 +13,6 @@
     <display-name>Classroom Management System(CMS)</display-name>
 
     <!-- 컨텍스트 초기화 파라미터 설정 -->
-  
     
     <!--
        다음 태그가 지원이 안되는 경우,
@@ -22,11 +21,11 @@
     -->
     
     <!-- 리스너 배치하기 -->
-    <!-- 
+    <!--  
     <listener>
         <listener-class>bitcamp.java110.cms.listener.ContextLoaderListener</listener-class>
     </listener>
-     -->
+    -->
     
     <!-- 필터 배치하기 -->
     <filter>
@@ -37,18 +36,19 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
-    
+
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/app/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>    
+    
     
     <!-- 프론트 컨트롤러 서블릿 배치하기 -->
-    
     <servlet>
         <servlet-name>app</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- 프론트 컨트롤러가 사용할 IoC 컨테이너 클래스를 지정하기  -->
+        
+        <!-- 프론트 컨트롤러가 사용할 IoC 컨테이너 클래스를 지정하기 -->
         <init-param>
             <param-name>contextClass</param-name>
             <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
@@ -61,7 +61,7 @@
         </init-param>
         
         <load-on-startup>1</load-on-startup>
-        
+
         <multipart-config>
             <max-file-size>2000000</max-file-size>
         </multipart-config>
@@ -81,6 +81,7 @@
     </welcome-file-list>
 
 </web-app>
+
 
 
 
