@@ -1,7 +1,5 @@
 // 객체 생성하기 : Spring IoC 컨테이너 사용2
 
-// 팩토리지만 인스턴스 만들어서
-
 package ex01;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;

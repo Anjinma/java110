@@ -36,7 +36,8 @@ list1.add("유관순");
 request.setAttribute("names1", list1);
 %>
 
-<jsp:useBean    
+<jsp:useBean     
+
     scope="request" 
     id="names1"
     class="java.util.ArrayList"/>

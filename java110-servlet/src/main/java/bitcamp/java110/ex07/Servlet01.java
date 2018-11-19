@@ -49,7 +49,7 @@ public class Servlet01 extends HttpServlet {
             HttpServletResponse res) 
             throws ServletException, IOException {
 
-        // ServletContext 보관소에 값 저장하기
+        // ServletRequest 보관소에 값 저장하기
         req.setAttribute("bbb", "임꺽정");
         
         res.setContentType("text/plain;charset=UTF-8");

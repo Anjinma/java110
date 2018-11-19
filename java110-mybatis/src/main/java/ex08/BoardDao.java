@@ -49,14 +49,12 @@ public class BoardDao {
     
     public Board findByNo(int no) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        //sqlSession이 
         try {
             return sqlSession.selectOne("boarddao.findByNo",no);
         } finally {
             sqlSession.close();
         }
     }
-    
     
     public List<AttachFile> findAttachFiles(int boardNo) {
         SqlSession sqlSession = sqlSessionFactory.openSession();

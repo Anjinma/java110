@@ -5,7 +5,6 @@
 //      <property name="프로퍼티명" >
 //          <list>...</list>
 //      </property>
-
 //    방법2)
 //      <property name="프로퍼티명" >
 //          <array>...</array>

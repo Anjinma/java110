@@ -12,6 +12,4 @@ public class Inventory {
     public void setMember(Member member) {
         this.member = member;
     }
-    
-    
 }

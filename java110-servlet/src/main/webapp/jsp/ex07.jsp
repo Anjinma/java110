@@ -5,7 +5,7 @@
     import="java.net.*,java.util.*"
     import="java.lang.ref.*"
     trimDirectiveWhitespaces="true"
-    buffer="1kb"
+    buffer="100kb"
     autoFlush="false"%>
 <%@ page import="java.lang.reflect.Method" %>
 <!DOCTYPE html>

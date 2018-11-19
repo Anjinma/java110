@@ -12,7 +12,6 @@ public class Board {
     protected int memberNo;
     protected String writer; // 목록에서 작성자의 이름을 출력하기 위해 필드 추가
     
-    // 이전의 ex06 패키지와 달리 작성자 정보는 Member 객페에 담는다.
     protected Member member;
     
     // 첨부파일을 담을 목록 준비

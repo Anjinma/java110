@@ -19,6 +19,8 @@ insert into p1_memb(mno, name, email, pwd, cdt)
 values (9, 'user09', 'user09@test.com', password('1111'), now());
 insert into p1_memb(mno, name, email, pwd, cdt)
 values (10, 'user10', 'user10@test.com', password('1111'), now());
+insert into p1_memb(mno, name, email, pwd, cdt)
+values (11, 'user11', 'user11@test.com', password('1111'), now());
 
 -- 학생 회원
 insert into p1_stud(sno,schl,work) values(1,'비트대학교','N');
@@ -35,6 +37,7 @@ insert into p1_tchr(tno,hrpay,subj) values(8,14000,'C,C++,안드로이드');
 -- 매니저 회원 
 insert into p1_mgr(mrno,posi) values(9,'대리');
 insert into p1_mgr(mrno,posi) values(10,'과장');
+insert into p1_mgr(mrno,posi) values(11,'대리석');
 
 -- 게시물
 insert into p1_board(titl,cont,cnt,cdt,mno)

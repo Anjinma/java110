@@ -24,8 +24,8 @@ public class DatePropertyEditor extends PropertyEditorSupport{
         // 내부 필드에 저장한다.
         this.setValue(date);
         
-        // 스프링 IoC컨테이너는 이 메서드를 호출한 후,
-        // 변환된 값을 꺼내기 위해 getValue()를 호출하여 그 리턴 값을 사용한다.
+//         스프링 IoC컨테이너는 이 메서드를 호출한 후,
+//         변환된 값을 꺼내기 위해 getValue()를 호출하여 그 리턴 값을 사용한다.
     }
     
     @Override

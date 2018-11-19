@@ -1,7 +1,7 @@
 // 객체 생성 : 생성 전략
 // 1) singleton
 //      => 한 개만 생성
-//      => IoC컨테이너가 생성된 후 즉시 설정 파일에 등록괸 객체를 생성한다.
+//      => IoC컨테이너가 생성된 후 즉시 설정 파일에 등록된 객체를 생성한다.
 // 2) prototype
 //      => IoC 컨테이너가 생성된 후 자동으로 생성되지 않는다.
 //      => getBean()을 호출할 때 마다 생성된다.
@@ -38,9 +38,9 @@ public class Test04 {
         
         System.out.println("-------------------------------");
         
-        // scope을 생략하면 기본이 singleton이다.
-        // 즉 객체를 한 개만 생성한다.
-        // scope 생략
+//         scope을 생략하면 기본이 singleton이다.
+//         즉 객체를 한 개만 생성한다.
+//         scope 생략
         Car c1 = (Car)iocContainer.getBean("n1");
         System.out.println(c1);
         
@@ -58,8 +58,8 @@ public class Test04 {
         
         if(c3==c4) System.out.println("c3 == c4");
         ///////////////////////
-        // scope이 prototype이라면, 객체를 꺼낼 때 마다 즉시 생성하여 리턴한다.
-        //scope=prototype
+//         scope이 prototype이라면, 객체를 꺼낼 때 마다 즉시 생성하여 리턴한다.
+//        scope=prototype
         Car c5 = (Car)iocContainer.getBean("n3");
         System.out.println(c5);
         

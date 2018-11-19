@@ -28,7 +28,7 @@ public class Servlet02 extends HttpServlet {
         PrintWriter out = res.getWriter();
         
         out.println("/ex07/servlet02 실행!");
-        
+    
         // ServletContext 보관소에 저장된 값 꺼내기
         // => 먼저 ServletContext 객체를 알아낸다.
         ServletContext sc = this.getServletContext();
